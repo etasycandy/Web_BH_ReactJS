@@ -1,0 +1,133 @@
+.btn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &--primary {
+    background-color: $btn-main-color;
+    color: #242424;
+    border: 1px solid $btn-main-color;
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $txt-white;
+    padding: 8px 20px;
+    border: 1px solid $btn-main-color;
+    transition: all 0.3s ease-out;
+  }
+
+  &--medium {
+    padding: 8px 20px;
+    font-size: 18px;
+  }
+
+  &--large {
+    padding: 12px 26px;
+    font-size: 20px;
+  }
+
+  &--mobile {
+    text-align: center;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+  }
+
+  &--wide {
+    padding: 12px 64px;
+    font-size: 20px;
+  }
+
+  &--large:hover,
+  &--medium:hover,
+  &--mobile:hover {
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #242424;
+  }
+
+  &--wide:hover {
+    color: #fff;
+    background-color: #f00946;
+    transition: all 0.2s ease-out;
+  }
+
+  &-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 16px;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.blue {
+  background-color: #4267b2;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    box-shadow: #01823c 0 0 7px;
+    background-color: #01823c;
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.del {
+  background-color: #4267b2;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    box-shadow: #f00946 0 0 7px;
+    background-color: #f00946;
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.red {
+  background-color: #f00946;
+  color: #fff;
+  border: none;
+}
+
+.primary {
+  background-color: #242424;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    background-color: #fff;
+    color: #242424;
+    border: none;
+  }
+}
+
+.green {
+  background: #01823c;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    box-shadow: #01823c 0 0 7px;
+    background-color: #4267b2;
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+}

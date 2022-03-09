@@ -1,0 +1,38 @@
+.list-card {
+  padding: 0.3rem;
+}
+
+.card {
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 30px;
+  border-radius: 7px;
+  cursor: default;
+
+  &__image {
+    svg {
+      height: 100%;
+    }
+  }
+
+  &__main {
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    small {
+      color: rgb(130, 130, 130);
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-size: 15px;
+    }
+  }
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  transition: all 0.4s ease-out;
+}

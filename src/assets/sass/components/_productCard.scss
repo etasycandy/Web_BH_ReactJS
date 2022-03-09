@@ -1,0 +1,93 @@
+.product-card {
+  background-color: #fff;
+  text-align: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 30px;
+  border-radius: 7px;
+
+  @include mobile {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &:hover {
+    box-shadow: #01823c 0 1px 4px;
+    transform: translateY(-4px);
+    transition: all 0.4s ease-out;
+
+    &__btn {
+      button {
+        box-shadow: #01823c 0 1px 4px;
+        transition: all 0.4s ease-out;
+      }
+    }
+  }
+
+  &__info {
+    a {
+      text-decoration: none;
+      color: #242424;
+    }
+
+    &__image {
+      padding-top: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100%;
+
+        &:nth-child(1) {
+          transform: translateX(-50%) scale(1);
+          transition: transform 0.7s ease;
+        }
+
+        &:nth-child(2) {
+          transform: translateX(-50%) scale(0);
+        }
+      }
+
+      &:hover img:nth-child(1) {
+        transform: translateX(-50%) scale(0);
+      }
+
+      &:hover img:nth-child(2) {
+        transform: translateX(-50%) scale(1);
+        transition: transform 0.7s ease;
+      }
+    }
+
+    &__name {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      font-family: "Abel", sans-serif;
+      font-weight: 700;
+    }
+
+    &__price {
+      color: #4267b2;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-family: "Oswald", sans-serif;
+    }
+
+    &__price-old {
+      del {
+        color: #d4b757;
+        margin-left: 20px;
+        font-weight: 300;
+        font-size: 1rem;
+        font-family: "Oswald", sans-serif;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 1rem 0 2rem 0;
+  }
+}

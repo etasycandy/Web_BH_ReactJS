@@ -1,0 +1,78 @@
+.contact {
+  background-color: #ececec;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    background-color: white;
+    width: 80%;
+    max-width: 1200px;
+    height: fit-content;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 5rem 0 5rem 0;
+
+    &__introduce {
+      margin-bottom: 2rem;
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-family: "Merriweather", serif;
+      }
+    }
+
+    &__line {
+      margin: 0 auto;
+      height: 1px;
+      width: 95%;
+      background-color: #ececec;
+    }
+
+    &__main {
+      margin: 1rem 0;
+
+      h2 {
+        margin-bottom: 1.5rem;
+
+        @include mobile {
+          text-align: center;
+        }
+      }
+
+      &__infomation {
+        b {
+          font-family: "Merriweather", serif;
+        }
+
+        p {
+          font-family: "Merriweather", serif;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000;
+          font-family: "Merriweather", serif;
+        }
+
+        &__info-our {
+          padding-right: 1rem;
+          margin-left: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+
+      &__ggmap {
+        iframe {
+          width: 100%;
+          border-radius: 1rem;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 5px 10px;
+        }
+      }
+    }
+  }
+}

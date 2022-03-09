@@ -1,0 +1,137 @@
+.footer {
+  background-color: #242424;
+  padding: 4rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__subscr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 24px;
+    color: #fff;
+
+    p {
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    }
+
+    &__heading {
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+
+    &__text {
+      margin-bottom: 24px;
+      font-size: 20px;
+    }
+
+    &__form {
+      height: 3.5rem;
+
+      form {
+        height: 100%;
+        display: flex;
+      }
+
+      &__btns {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &__input {
+      width: 100%;
+      height: 100%;
+      padding: 8px 20px;
+      border-radius: 2px;
+      outline: none;
+      border: none;
+      font-size: 18px;
+      border: 1px solid #fff;
+
+      &::placeholder {
+        color: #b1b1b1;
+      }
+    }
+  }
+
+  &__links {
+    width: 90%;
+    max-width: 1000px;
+
+    @media (max-width: 768px) {
+      margin-top: 2.5rem;
+    }
+
+    &__items {
+      width: 80%;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 16px;
+      text-align: left;
+      box-sizing: border-box;
+
+      @media (max-width: 768px) {
+        align-items: center;
+
+        h3 {
+          text-align: center;
+        }
+      }
+
+      h3 {
+        width: 100%;
+        margin-bottom: 16px;
+        color: #fff;
+      }
+
+      a {
+        font-size: large;
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        font-family: "League Spartan", sans-serif;
+      }
+
+      a:hover {
+        color: #e9e9e9;
+        transition: 0.3s ease-out;
+      }
+    }
+  }
+
+  &__media {
+    max-width: 1000px;
+    width: 100%;
+
+    &__logo {
+      color: #fff;
+      cursor: pointer;
+      font-size: 2rem;
+    }
+
+    &__icons {
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 240px;
+    }
+
+    &__copyrights {
+      font-size: 17px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+  }
+}
