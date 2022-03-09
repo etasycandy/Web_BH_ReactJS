@@ -11,7 +11,7 @@ class Card extends React.Component {
         <div className="row card">
           <div className="col-3 card__image">{icon}</div>
           <div className="col-9 card__main">
-            <h3 className="card__main__title">{title}</h3>
+            <h4 className="card__main__title">{title}</h4>
             <small className="card__main__content">{content}</small>
           </div>
         </div>
