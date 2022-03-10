@@ -1,0 +1,199 @@
+.product-view {
+  height: max-content;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: $box-shadow;
+  padding-bottom: 2.5rem;
+
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__images {
+    @include flex(flex-start, flex-start);
+    flex-wrap: wrap;
+
+    &__list {
+      &__item {
+        cursor: pointer;
+      }
+    }
+
+    &__main {
+      flex-grow: 1;
+      padding-top: 100%;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__info {
+    flex-grow: 1;
+    position: sticky;
+    top: $header-shrink-height;
+    padding-top: 2rem;
+
+    @include mobile {
+      position: relative;
+      top: unset;
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: "Oswald", sans-serif;
+    }
+
+    &__item {
+      &__price {
+        color: $main-color;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      &__priceOld {
+        del {
+          color: #d4b757;
+          font-weight: 300;
+          font-size: 1.3rem;
+          font-family: "Oswald", sans-serif;
+        }
+      }
+
+      &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 1.5rem 0;
+        font-family: "Oswald", sans-serif;
+      }
+
+      &__list {
+        @include flex(center, flex-start);
+
+        &__item {
+          @include flex(center, center);
+
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 2px solid $txt-second-color;
+          cursor: pointer;
+          margin-right: 1rem;
+
+          @include mobile {
+            width: 40px;
+            height: 40px;
+          }
+
+          &.active {
+            border-color: $main-color;
+          }
+
+          &:hover {
+            border-color: $main-color;
+          }
+
+          .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            @include mobile {
+              width: 30px;
+              height: 30px;
+            }
+          }
+
+          &__size {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &__quantity {
+        margin-bottom: 2rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include flex(flex-start, flex-start);
+
+        &__btn {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+
+        &__input {
+          @include flex(center, center);
+          height: 30px;
+          width: 50px;
+          font-size: 2rem;
+        }
+      }
+
+      button {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.product-description {
+  width: 100%;
+  padding: 2rem 2rem 3rem;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+
+  @include mobile {
+    display: none;
+  }
+
+  &.mobile {
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &.expand {
+    height: max-content;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2rem 0;
+  }
+
+  &__content {
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+  }
+
+  &__toggle {
+    position: absolute;
+    bottom: 0.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
