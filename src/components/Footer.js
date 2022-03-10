@@ -175,7 +175,9 @@ function Footer() {
           }}
           className="col-sm-12 col-md-4"
         >
-          <small className="footer__media__copyrights">ECshop © 2020</small>
+          <small className="footer__media__copyrights">
+            Copyright © 2022 ECshop.
+          </small>
         </div>
       </section>
     </div>

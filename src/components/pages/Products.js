@@ -99,23 +99,9 @@ const Products = () => {
 
   const showHideFilter = () => filterRef.current.classList.toggle("active");
 
-  const rows = [];
-
-  products.forEach((item, index) => {
-    rows.push(
-      <div className="col-xs-12 col-sm-6 col-md-4 mb-4">
-        <ProductCard
-          key={index}
-          img01={item.image01}
-          img02={item.image02}
-          name={item.title}
-          price={Number(item.price)}
-          priceOld={Number(item.priceOld)}
-          slug={item.slug}
-        />
-      </div>
-    );
-  });
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [productList]);
 
   return (
     <Helmet title="Products">
@@ -135,9 +121,9 @@ const Products = () => {
               Product portfolio
             </div>
             <div className="products__filter__widget__content">
-              {category.map((item, index) => (
+              {category.map((item) => (
                 <div
-                  key={index}
+                  key={item.id}
                   className="products__filter__widget__content__item"
                 >
                   <CheckBox
@@ -155,9 +141,9 @@ const Products = () => {
           <div className="products__filter__widget">
             <div className="products__filter__widget__title">Colors</div>
             <div className="products__filter__widget__content">
-              {colors.map((item, index) => (
+              {colors.map((item) => (
                 <div
-                  key={index}
+                  key={item.color}
                   className="products__filter__widget__content__item"
                 >
                   <CheckBox
@@ -175,9 +161,9 @@ const Products = () => {
           <div className="products__filter__widget">
             <div className="products__filter__widget__title">Sizes</div>
             <div className="products__filter__widget__content">
-              {size.map((item, index) => (
+              {size.map((item) => (
                 <div
-                  key={index}
+                  key={item.size}
                   className="products__filter__widget__content__item"
                 >
                   <CheckBox
@@ -213,7 +199,20 @@ const Products = () => {
             Fillter
           </Button>
         </div>
-        <div className="row products__content">{rows}</div>
+        <div className="row products__content">
+          {products.map((item) => (
+            <ProductCard
+              class="col-xs-12 col-sm-6 col-md-4 mb-4"
+              key={item.id}
+              img01={item.image01}
+              img02={item.image02}
+              name={item.title}
+              price={Number(item.price)}
+              priceOld={Number(item.priceOld)}
+              slug={item.slug}
+            />
+          ))}
+        </div>
       </div>
     </Helmet>
   );

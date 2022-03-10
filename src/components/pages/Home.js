@@ -27,7 +27,9 @@ function Home() {
             alignItems: "center",
           }}
         >
-          <Suggestions />
+          <div style={{ width: "90%", maxWidth: "1200px" }}>
+            <Suggestions title="Suggestions for you" />
+          </div>
         </div>
       </div>
     </Helmet>

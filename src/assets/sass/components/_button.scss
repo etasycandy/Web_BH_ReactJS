@@ -131,3 +131,17 @@
     transition: all 0.3s ease-out;
   }
 }
+
+.transparent {
+  background: #01823ba9;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    box-shadow: #f00946d8 0 0 7px;
+    background-color: #4267b29c;
+    color: rgb(255, 255, 0);
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+}
