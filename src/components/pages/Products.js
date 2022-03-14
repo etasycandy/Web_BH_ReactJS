@@ -114,7 +114,7 @@ const Products = () => {
             className="products__filter__close"
             onClick={() => showHideFilter()}
           >
-            <MdOutlineArrowBackIos />
+            <MdOutlineArrowBackIos style={{ cursor: "pointer" }} />
           </div>
           <div className="products__filter__widget">
             <div className="products__filter__widget__title">

@@ -62,15 +62,6 @@ function Navbar() {
                 </li>
                 <li className="navbar__container__menu__item">
                   <Link
-                    to="/accessory"
-                    className="navbar__container__menu__item__links"
-                    onClick={closeMobileMenu}
-                  >
-                    Accessory
-                  </Link>
-                </li>
-                <li className="navbar__container__menu__item">
-                  <Link
                     to="/contact"
                     className="navbar__container__menu__item__links"
                     onClick={closeMobileMenu}
