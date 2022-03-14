@@ -91,7 +91,7 @@ function Navbar() {
                 </li>
                 <li className="navbar__container__menu__btn">
                   <Link
-                    to="/sign-up"
+                    to="/accounts"
                     className="navbar__container__menu__btn-link"
                   >
                     <Button

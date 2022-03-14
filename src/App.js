@@ -13,7 +13,11 @@ import Products from "./components/pages/Products";
 import Product from "./components/pages/Product";
 import Contact from "./components/pages/Contact";
 import Cart from "./components/pages/Cart";
-import SignUp from "./components/pages/SignUp";
+import Account from "./components/pages/Account";
+import SignIn from "./components/pages/SignIn";
+import Register from "./components/pages/Register";
+
+import Error from "./components/pages/Error";
 
 function App() {
   return (
@@ -25,7 +29,11 @@ function App() {
         <Route path="/products" exact component={Products} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/cart" exact component={Cart} />
-        <Route path="/sign-up" exact component={SignUp} />
+        <Route path="/accounts" exact component={Account} />
+        <Route path="/accounts/sign-in" exact component={SignIn} />
+        <Route path="/accounts/register" exact component={Register} />
+
+        <Route path="*" exact component={Error} />
       </Switch>
       <Footer />
     </Router>
