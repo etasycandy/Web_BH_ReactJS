@@ -62,15 +62,6 @@ function Navbar() {
                 </li>
                 <li className="navbar__container__menu__item">
                   <Link
-                    to="/accessory"
-                    className="navbar__container__menu__item__links"
-                    onClick={closeMobileMenu}
-                  >
-                    Accessory
-                  </Link>
-                </li>
-                <li className="navbar__container__menu__item">
-                  <Link
                     to="/contact"
                     className="navbar__container__menu__item__links"
                     onClick={closeMobileMenu}
@@ -100,7 +91,7 @@ function Navbar() {
                 </li>
                 <li className="navbar__container__menu__btn">
                   <Link
-                    to="/sign-up"
+                    to="/accounts"
                     className="navbar__container__menu__btn-link"
                   >
                     <Button
