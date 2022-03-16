@@ -6,6 +6,7 @@ import { SiShopify } from "react-icons/si";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
+import { VscAccount } from "react-icons/vsc";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -73,9 +74,11 @@ function Navbar() {
                   <Link
                     to="/cart"
                     className="navbar__container__menu__btn-link"
-                    onClick={closeMobileMenu}
                   >
-                    <Button buttonStyle="btn--outline">
+                    <Button
+                      buttonStyle="btn--outline"
+                      onClick={closeMobileMenu}
+                    >
                       Cart&nbsp;
                       <BsCart4
                         className="cart-icon"
@@ -98,7 +101,16 @@ function Navbar() {
                       buttonStyle="btn--outline"
                       onClick={closeMobileMenu}
                     >
-                      SIGN UP
+                      Account&nbsp;
+                      <VscAccount
+                        className="cart-icon"
+                        size={21}
+                        style={{
+                          marginBottom: "5px",
+                          padding: 0,
+                          strokeWidth: "0.5px",
+                        }}
+                      />
                     </Button>
                   </Link>
                 </li>
