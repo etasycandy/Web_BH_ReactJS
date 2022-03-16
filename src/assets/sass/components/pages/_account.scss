@@ -1,0 +1,237 @@
+.account {
+  height: fit-content;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  margin-top: 5rem !important;
+
+  &__poster {
+    width: 100%;
+    height: 25rem;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-position: 50%;
+    box-shadow: $box-shadow;
+
+    &__main {
+      width: 100%;
+    }
+
+    &__mask {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-size: cover;
+      background-position: center center;
+      top: 0;
+      left: 0;
+      opacity: 0.4;
+      background-image: linear-gradient(195deg, #ec407a 0%, #d81b60 100%);
+    }
+  }
+
+  &__profile {
+    width: 95%;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 1rem;
+    position: relative;
+    bottom: 5rem;
+    left: 2.5%;
+    right: 2.5%;
+    padding: 1rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 20px;
+
+    &__main {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+
+      &__info {
+        height: 100%;
+
+        &__row1 {
+          display: flex;
+          gap: 2rem;
+
+          @include mobile {
+            flex-direction: column;
+          }
+
+          &__avatar {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 1rem;
+            overflow: auto;
+          }
+
+          &__contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h5 {
+              font-family: "Poppins", sans-serif;
+              font-size: 2rem;
+              font-weight: 600;
+            }
+
+            p {
+              font-family: "Poppins", sans-serif;
+              font-size: larger;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+
+        &__row2 {
+          padding: 0 0 0 1.5rem;
+
+          &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__icon {
+              cursor: pointer;
+              margin-right: 2rem;
+            }
+
+            &__noti {
+              width: max-content;
+              position: absolute;
+              bottom: 2rem;
+              right: -0.7rem;
+              color: white;
+              padding: 0.5rem 1rem;
+              border-radius: 0.9rem;
+              background-color: #000;
+              display: none;
+              box-shadow: $box-shadow;
+            }
+          }
+
+          h5 {
+            font-weight: 600;
+            font-size: 1.2rem;
+          }
+
+          p {
+            font-size: 1.1rem;
+          }
+
+          li {
+            margin-bottom: 1rem;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+
+            strong {
+              font-size: 1.1rem;
+              font-weight: 500;
+              font-family: "Poppins", sans-serif;
+            }
+
+            a {
+              margin-left: 1rem;
+
+              :hover {
+                color: black;
+              }
+            }
+          }
+
+          &__social {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+
+      &__second {
+        height: max-content;
+
+        h5 {
+          font-weight: 600;
+          font-size: 1.2rem;
+        }
+
+        &__message {
+          width: 100%;
+          height: 400px;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          overflow-y: scroll;
+
+          a:hover h5 {
+            color: #ec407a;
+            transition: all 0.5s ease-out;
+          }
+
+          &__main {
+            width: 100%;
+            height: max-content;
+            background-color: #fff;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            margin: 0;
+            align-items: center;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 20px;
+
+            &__avt {
+              margin: 0;
+              width: 5rem;
+              height: 5rem;
+              border-radius: 1rem;
+              position: relative;
+              overflow: hidden;
+              display: flex;
+              align-items: center;
+              background-position: 50%;
+
+              img {
+                width: 100%;
+              }
+            }
+
+            &__content {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin: 0 1rem;
+              width: 65%;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+
+              h5 {
+                font-family: "Poppins", sans-serif;
+                font-size: 1.3rem;
+                font-weight: 600;
+              }
+
+              p {
+                font-family: "Poppins", sans-serif;
+                font-size: 1.1rem;
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+h5,
+p {
+  font-family: "Poppins", sans-serif;
+}

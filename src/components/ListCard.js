@@ -48,40 +48,6 @@ class ListCard extends React.Component {
             content="Exchange, repair at all stores"
           />
         </div>
-        {/* <div className="list-card-wrap">
-          <Card
-            icon={
-              <HiOutlineShoppingBag
-                size={40}
-                color="#4267b2"
-                strokeWidth="0.5px"
-              />
-            }
-            title="Free ship"
-            content="Free delivery for orders >= 239K"
-          />
-          <Card
-            icon={
-              <ImCreditCard size={40} color="#4267b2" strokeWidth="0.5px" />
-            }
-            title="COD payment"
-            content="Payment on delivery (COD)"
-          />
-        </div>
-        <div className="list-card-wrap">
-          <Card
-            icon={
-              <IoDiamondOutline size={40} color="#4267b2" strokeWidth="0.5px" />
-            }
-            title="VIP customers"
-            content="Offers for VIP customers"
-          />
-          <Card
-            icon={<BiSupport size={40} color="#4267b2" strokeWidth="0.1px" />}
-            title="Warranty support"
-            content="Exchange, repair at all stores"
-          />
-        </div> */}
       </div>
     );
   }
