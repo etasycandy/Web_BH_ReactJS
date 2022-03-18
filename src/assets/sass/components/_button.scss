@@ -145,3 +145,31 @@
     transition: all 0.3s ease-out;
   }
 }
+
+.subtract {
+  background: #4267b2;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    box-shadow: #4267b29c 0 0 7px;
+    background-color: #f00946d8;
+    color: rgb(255, 255, 0);
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.add {
+  background: #4267b2;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    box-shadow: #4267b29c 0 0 7px;
+    background-color: #01823ba9;
+    color: rgb(255, 255, 0);
+    border: none;
+    transition: all 0.3s ease-out;
+  }
+}

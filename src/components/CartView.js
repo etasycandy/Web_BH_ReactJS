@@ -1,6 +1,11 @@
 import React from "react";
 import numberWithCommas from "../utils/numberWithCommas";
 
+import { Button } from "./Button";
+
+// icons
+import { GrSubtract, GrAdd } from "react-icons/gr";
+
 const CartView = (props) => {
   return (
     <tr>
@@ -17,13 +22,25 @@ const CartView = (props) => {
           {props.name}
         </div>
       </td>
-      <td>
-        <div
-          className="font__family d-flex justify-content-center align-items-center"
-          style={{ height: "5rem" }}
+      <td
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "7.5rem" }}
+      >
+        <Button
+          buttonStyle="btn--outline"
+          buttonClassName="cart__list-product__btn"
+          buttonColor="subtract"
         >
-          {0}
-        </div>
+          <GrSubtract />
+        </Button>
+        <div className="font__family">{1}</div>
+        <Button
+          buttonStyle="btn--outline"
+          buttonClassName="cart__list-product__btn"
+          buttonColor="add"
+        >
+          <GrAdd />
+        </Button>
       </td>
       <td>
         <div

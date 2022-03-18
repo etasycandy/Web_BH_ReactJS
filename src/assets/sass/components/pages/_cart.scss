@@ -29,6 +29,11 @@ tr td {
         width: 100%;
       }
     }
+
+    &__btn {
+      padding: 0.2rem 0.5rem !important;
+      margin: 1rem;
+    }
   }
 
   &__bill {
