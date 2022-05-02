@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Button } from "./Button";
 import numberWithCommas from "../utils/numberWithCommas";
+
+import cart from "../assets/fake-data/cart";
 
 // icon
 import { GrSubtractCircle, GrAddCircle } from "react-icons/gr";
 
 const ProductView = (props) => {
   let product = props.product;
-
   if (product === undefined)
     product = {
       title: "",
@@ -31,22 +32,25 @@ const ProductView = (props) => {
 
   const [size, setSize] = useState(undefined);
 
-  const [quantity, setQuantity] = useState(1);
+  let [quantity, setQuantity] = useState(1);
 
-  const updateQuantity = (type) => {
-    if (type === "plus") {
-      setQuantity(quantity + 1);
-    } else {
-      setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
+  const [price, setPrice] = useState(parseInt(product.price))
+
+  const handleIncreament = () => {
+    setQuantity(quantity+=1)
+  }
+
+  const handleDecreament = () => {
+    if(quantity <= 1) {
+      setQuantity(1)
+      return false
     }
-  };
+    setQuantity(quantity -= 1)
+  }
 
-  useEffect(() => {
-    setPreviewImg(product.image01);
-    setQuantity(1);
-    setColor(undefined);
-    setSize(undefined);
-  }, [product]);
+  // useEffect(() => {
+  //   setPreviewImg(product.image01);
+  // }, [product]);
 
   const check = () => {
     if (color === undefined) {
@@ -62,9 +66,26 @@ const ProductView = (props) => {
     return true;
   };
 
+  const handleGetColorOrder = (color) => {
+    setColor(color)
+  }
+
+  const handleGetSizeOrder = (size) => {
+    setSize(size)
+  }
+
   const addToCart = () => {
     if (check()) {
-      console.log("Add");
+      const productChoose = {
+        image: product.image01,
+        name: product.title,
+        color: color,
+        size: size,
+        quantity: quantity,
+        price: price
+      }
+      cart.push(productChoose)
+     console.log(cart);
     }
   };
 
@@ -146,7 +167,7 @@ const ProductView = (props) => {
                   className={`product-view__info__item__list__item ${
                     color === item ? "active" : ""
                   }`}
-                  onClick={() => setColor(item)}
+                  onClick={() => handleGetColorOrder(item)}
                 >
                   <div className={`circle bg-${item}`}></div>
                 </div>
@@ -163,7 +184,7 @@ const ProductView = (props) => {
                   className={`product-view__info__item__list__item ${
                     size === item ? "active" : ""
                   }`}
-                  onClick={() => setSize(item)}
+                  onClick={() => handleGetSizeOrder(item)}
                 >
                   <span className="product-view__info__item__list__item__size">
                     {item}
@@ -178,7 +199,7 @@ const ProductView = (props) => {
             <div className="product-view__info__item__quantity">
               <div
                 className="product-view__info__item__quantity__btn"
-                onClick={() => updateQuantity("minus")}
+                onClick={() => handleDecreament()}
               >
                 <GrSubtractCircle size={30} />
               </div>
@@ -187,7 +208,7 @@ const ProductView = (props) => {
               </div>
               <div
                 className="product-view__info__item__quantity__btn"
-                onClick={() => updateQuantity("plus")}
+                onClick={() => handleIncreament()}
               >
                 <GrAddCircle size={30} />
               </div>
