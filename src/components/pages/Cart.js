@@ -18,16 +18,21 @@ function Cart() {
               <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Name product</th>
+                <th scope="col">Color</th>
+                <th scope="col">Size</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
               </tr>
             </thead>
             <tbody>
-              {cart.map((item) => (
+              {cart.map((item, index) => (
                 <CartView
-                  key={item.id}
+                  key={index}
                   name={item.name}
                   image={item.image}
+                  color={item.color}
+                  size={item.size}
+                  quantity={item.quantity}
                   price={Number(item.price)}
                 />
               ))}

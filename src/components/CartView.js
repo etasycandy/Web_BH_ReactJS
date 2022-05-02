@@ -7,11 +7,12 @@ import { Button } from "./Button";
 import { GrSubtract, GrAdd } from "react-icons/gr";
 
 const CartView = (props) => {
+  const {image, name, color, size, quantity, price} = props
   return (
     <tr>
       <td className="cart__list-product__image ">
         <div className="d-flex justify-content-center align-items-center">
-          <img src={props.image} alt="" />
+          <img src={image} alt="" />
         </div>
       </td>
       <td>
@@ -19,7 +20,23 @@ const CartView = (props) => {
           className="font__family d-flex justify-content-center align-items-center"
           style={{ height: "5rem" }}
         >
-          {props.name}
+          {name}
+        </div>
+      </td>
+      <td>
+        <div
+          className="font__family d-flex justify-content-center align-items-center"
+          style={{ height: "5rem" }}
+        >
+          {color}
+        </div>
+      </td>
+      <td>
+        <div
+          className="font__family d-flex justify-content-center align-items-center"
+          style={{ height: "5rem", textTransform: "uppercase" }}
+        >
+          {size}
         </div>
       </td>
       <td
@@ -33,7 +50,7 @@ const CartView = (props) => {
         >
           <GrSubtract />
         </Button>
-        <div className="font__family">{1}</div>
+        <div className="font__family">{quantity}</div>
         <Button
           buttonStyle="btn--outline"
           buttonClassName="cart__list-product__btn"
@@ -47,7 +64,7 @@ const CartView = (props) => {
           className="font__family d-flex justify-content-center align-items-center"
           style={{ height: "5rem" }}
         >
-          {numberWithCommas(props.price)}
+          {numberWithCommas(price)}
         </div>
       </td>
     </tr>
