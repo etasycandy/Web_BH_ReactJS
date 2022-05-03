@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import {useSelector, useDispatch} from 'react-redux'
 
 import { Button } from "./Button";
 import numberWithCommas from "../utils/numberWithCommas";
-
-import cart from "../assets/fake-data/cart";
-
+import {selectRemainingOrderProducts} from '../redux/selector'
+import cartSlice from './slices/cartSlice'
 // icon
 import { GrSubtractCircle, GrAddCircle } from "react-icons/gr";
 
@@ -25,16 +25,14 @@ const ProductView = (props) => {
     };
 
   const [previewImg, setPreviewImg] = useState(product.image01);
-
   const [descriptionExpand, setDescriptionExpand] = useState(false);
-
   const [color, setColor] = useState(undefined);
-
   const [size, setSize] = useState(undefined);
-
   let [quantity, setQuantity] = useState(1);
-
   const [price, setPrice] = useState(parseInt(product.price))
+
+  const dispatch = useDispatch()
+  const listOrderProduct = useSelector(selectRemainingOrderProducts)
 
   useEffect(() => {
     setPreviewImg(product.image01)
@@ -90,8 +88,7 @@ const ProductView = (props) => {
         quantity: quantity,
         priceTotal: price*quantity
       }
-      cart.push(productChoose)
-      console.log(cart);
+      dispatch(cartSlice.actions.addOrderProducts(productChoose))
   };
 }
 

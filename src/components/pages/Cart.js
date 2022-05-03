@@ -1,14 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Helmet from "../Helmet";
 import { Link } from "react-router-dom";
-
-import cart from "../../assets/fake-data/cart";
 import CartView from "../CartView";
-
+import {useSelector} from 'react-redux'
+import { selectRemainingOrderProducts } from "../../redux/selector";
 import numberWithCommas from "../../utils/numberWithCommas";
 
+
 function Cart() {
+  let [subTotalPrice, setSubTotalPrice] = useState(0)
+  const listOrderProduct = useSelector(selectRemainingOrderProducts)
+
+  useEffect(() => {
+    setSubTotalPrice(() => {
+      let total = 0
+      for(let product of listOrderProduct) {
+        total += product.priceTotal
+      }
+      return total.toFixed(1)
+    })
+  }, [listOrderProduct])
+
+
   return (
     <Helmet title="Cart">
       <div className="row cart mt-5 mb-5">
@@ -26,7 +40,7 @@ function Cart() {
             </thead>
             <tbody>
               {
-                cart.map((item, index) => (
+                listOrderProduct.map((item, index) => (
                   <CartView
                     key={index}
                     id={item.id}
@@ -45,12 +59,11 @@ function Cart() {
         </div>
         <div className="col-md-12 col-lg-4 cart__bill">
           <div className="cart__bill__content">
-            <p>Bạn đang có {cart.length} sản phẩm trong giỏ hàng</p>
+            <p>Bạn đang có {listOrderProduct.length} sản phẩm trong giỏ hàng</p>
             <div className="cart__bill__content__sum">
               <p>Thành tiền</p>
               <p className="cart__bill__content__sum__price">
-                {/* {numberWithCommas(100000)} */}
-                {}
+                {numberWithCommas(subTotalPrice)}
               </p>
             </div>
             <div className="cart__bill__content__order mb-3">
