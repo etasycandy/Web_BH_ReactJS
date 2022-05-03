@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Helmet from "../Helmet";
 import { Link } from "react-router-dom";
@@ -25,27 +25,32 @@ function Cart() {
               </tr>
             </thead>
             <tbody>
-              {cart.map((item, index) => (
-                <CartView
-                  key={index}
-                  name={item.name}
-                  image={item.image}
-                  color={item.color}
-                  size={item.size}
-                  quantity={item.quantity}
-                  price={Number(item.price)}
-                />
-              ))}
+              {
+                cart.map((item, index) => (
+                  <CartView
+                    key={index}
+                    id={item.id}
+                    name={item.name}
+                    image={item.image}
+                    price={item.price}
+                    color={item.color}
+                    size={item.size}
+                    quantity={item.quantity}
+                    priceTotal={Number(item.priceTotal)}
+                  />
+                ))
+              }
             </tbody>
           </table>
         </div>
         <div className="col-md-12 col-lg-4 cart__bill">
           <div className="cart__bill__content">
-            <p>Bạn đang có {0} sản phẩm trong giỏ hàng</p>
+            <p>Bạn đang có {cart.length} sản phẩm trong giỏ hàng</p>
             <div className="cart__bill__content__sum">
               <p>Thành tiền</p>
               <p className="cart__bill__content__sum__price">
-                {numberWithCommas(100000)}
+                {/* {numberWithCommas(100000)} */}
+                {}
               </p>
             </div>
             <div className="cart__bill__content__order mb-3">

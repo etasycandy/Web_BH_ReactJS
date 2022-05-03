@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Button } from "./Button";
 import numberWithCommas from "../utils/numberWithCommas";
@@ -35,6 +35,10 @@ const ProductView = (props) => {
   let [quantity, setQuantity] = useState(1);
 
   const [price, setPrice] = useState(parseInt(product.price))
+
+  useEffect(() => {
+    setPreviewImg(product.image01)
+  }, [product])
 
   const handleIncreament = () => {
     setQuantity(quantity+=1)
@@ -77,17 +81,19 @@ const ProductView = (props) => {
   const addToCart = () => {
     if (check()) {
       const productChoose = {
-        image: product.image01,
+        id: product.id,
+        image:  previewImg,
         name: product.title,
+        price: parseInt(product.price),
         color: color,
         size: size,
         quantity: quantity,
-        price: price
+        priceTotal: price*quantity
       }
       cart.push(productChoose)
-     console.log(cart);
-    }
+      console.log(cart);
   };
+}
 
   const goToCart = () => {
     if (check()) {
