@@ -1,30 +1,21 @@
 import React, { useEffect, useState } from "react";
 import numberWithCommas from "../utils/numberWithCommas";
 
+
 import { Button } from "./Button";
 
 // icons
 import { GrSubtract, GrAdd } from "react-icons/gr";
-import cart from "../assets/fake-data/cart";
 
 const CartView = (props) => {
   const {id, image, name, price, color, size, quantity, priceTotal} = props
 
-  let [updateQuantity, setUpdateQuantity] = useState(quantity)
-  const [updatePriceTotal, setUpdatePriceTotal] = useState(priceTotal)
-
   const handleIncreament = () => {
-    setUpdateQuantity(updateQuantity+=1)
+
   }
   
   const handleDecreament = () => {
-    const index = cart.findIndex(({i}) => i === id) + 1;
-    if(updateQuantity <= 1) {
-      cart.splice(index, 1)
-      console.log(cart);
-      return cart
-    }
-    setUpdateQuantity(updateQuantity-=1)
+
   }
   return (
     <tr>
@@ -69,7 +60,7 @@ const CartView = (props) => {
         >
           <GrSubtract />
         </Button>
-        <div className="font__family">{updateQuantity}</div>
+        <div className="font__family">{quantity}</div>
         <Button
           buttonStyle="btn--outline"
           buttonClassName="cart__list-product__btn"
@@ -84,7 +75,7 @@ const CartView = (props) => {
           className="font__family d-flex justify-content-center align-items-center"
           style={{ height: "5rem" }}
         >
-          {numberWithCommas(updatePriceTotal)}
+          {numberWithCommas(priceTotal)}
         </div>
       </td>
     </tr>
