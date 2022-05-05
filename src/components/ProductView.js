@@ -3,7 +3,9 @@ import {useSelector, useDispatch} from 'react-redux'
 
 import { Button } from "./Button";
 import numberWithCommas from "../utils/numberWithCommas";
-import {selectRemainingOrderProducts} from '../redux/selector'
+
+import {selectRemainingOrderProducts} from "../redux/selector"
+
 import cartSlice from './slices/cartSlice'
 // icon
 import { GrSubtractCircle, GrAddCircle } from "react-icons/gr";
@@ -32,14 +34,18 @@ const ProductView = (props) => {
   const [price, setPrice] = useState(parseInt(product.price))
 
   const dispatch = useDispatch()
-  const listOrderProduct = useSelector(selectRemainingOrderProducts)
-
   useEffect(() => {
     setPreviewImg(product.image01)
   }, [product])
 
+  const listOrderProduct = useSelector(selectRemainingOrderProducts)
+
+  useEffect(() => {
+    console.log(listOrderProduct);
+  })
+
   const handleIncreament = () => {
-    setQuantity(quantity+=1)
+    setQuantity(() => quantity+=1)
   }
 
   const handleDecreament = () => {
@@ -47,12 +53,8 @@ const ProductView = (props) => {
       setQuantity(1)
       return false
     }
-    setQuantity(quantity -= 1)
+    setQuantity(() => quantity -= 1)
   }
-
-  // useEffect(() => {
-  //   setPreviewImg(product.image01);
-  // }, [product]);
 
   const check = () => {
     if (color === undefined) {
@@ -84,14 +86,15 @@ const ProductView = (props) => {
         name: product.title,
         price: parseInt(product.price),
         color: color,
-        size: size,
-        quantity: quantity,
-        priceTotal: price*quantity
+        size: size
       }
-      dispatch(cartSlice.actions.addOrderProducts(productChoose))
+      setQuantity(1)
+      setColor(undefined)
+      setSize(undefined)
+      setPrice(product.price)
+      return dispatch(cartSlice.actions.addOrderProducts(productChoose)) 
   };
 }
-
   const goToCart = () => {
     if (check()) {
       console.log("Buy");
