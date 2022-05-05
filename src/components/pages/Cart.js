@@ -12,6 +12,7 @@ function Cart() {
   let [subTotalPrice, setSubTotalPrice] = useState(0)
   const listOrderProduct = useSelector(selectRemainingOrderProducts)
 
+
   useEffect(() => {
     setSubTotalPrice(() => {
       let total = 0
@@ -43,13 +44,13 @@ function Cart() {
                 listOrderProduct.map((item, index) => (
                   <CartView
                     key={index}
-                    id={item.id}
-                    name={item.name}
-                    image={item.image}
-                    price={item.price}
-                    color={item.color}
-                    size={item.size}
-                    quantity={item.quantity}
+                    id={item.product.id}
+                    name={item.product.name}
+                    image={item.product.image}
+                    price={item.product.price}
+                    color={item.product.color}
+                    size={item.product.size}
+                    quantity={item.counter}
                     priceTotal={Number(item.priceTotal)}
                   />
                 ))
