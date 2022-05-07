@@ -33,29 +33,6 @@ const ProductView = (props) => {
   let [quantity, setQuantity] = useState(1);
   const [price, setPrice] = useState(parseInt(product.price))
 
-  const dispatch = useDispatch()
-  useEffect(() => {
-    setPreviewImg(product.image01)
-  }, [product])
-
-  const listOrderProduct = useSelector(selectRemainingOrderProducts)
-
-  useEffect(() => {
-    console.log(listOrderProduct);
-  })
-
-  const handleIncreament = () => {
-    setQuantity(() => quantity+=1)
-  }
-
-  const handleDecreament = () => {
-    if(quantity <= 1) {
-      setQuantity(1)
-      return false
-    }
-    setQuantity(() => quantity -= 1)
-  }
-
   const check = () => {
     if (color === undefined) {
       alert("Vui lòng chọn màu sắc!");
@@ -69,6 +46,30 @@ const ProductView = (props) => {
 
     return true;
   };
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    setPreviewImg(product.image01)
+  }, [product])
+
+  const listOrderProduct = useSelector(selectRemainingOrderProducts)
+
+  useEffect(() => {
+    console.log(listOrderProduct);
+  })
+
+  const handleIncreament = () => {
+    setQuantity(() => quantity++)
+  }
+
+  const handleDecreament = () => {
+    if(quantity <= 1) {
+      setQuantity(1)
+      return false
+    }
+    setQuantity(() => quantity --)
+  }
 
   const handleGetColorOrder = (color) => {
     setColor(color)
@@ -86,7 +87,9 @@ const ProductView = (props) => {
         name: product.title,
         price: parseInt(product.price),
         color: color,
-        size: size
+        size: size,
+        quantity: quantity,
+        priceTotal: (price * quantity)
       }
       setQuantity(1)
       setColor(undefined)

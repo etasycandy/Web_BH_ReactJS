@@ -20,7 +20,7 @@ const CartView = (props) => {
 
   const handleIncreament = () => {
     // eslint-disable-next-line no-const-assign
-    setQuantityUpdate(() => quantityUpdate += 1)
+    setQuantityUpdate(() => quantityUpdate ++)
     setPriceTotalUpdate(() => priceTotalUpdate += price)
     const updateProduct = {
       id: id,
@@ -36,7 +36,7 @@ const CartView = (props) => {
   }
   
   const handleDecreament = () => {
-    setQuantityUpdate(() => quantityUpdate-=1)
+    setQuantityUpdate(() => quantityUpdate--)
     setPriceTotalUpdate(() => priceTotalUpdate -= price)
     if(quantityUpdate === 1) {
       console.log(listOrderProduct);
