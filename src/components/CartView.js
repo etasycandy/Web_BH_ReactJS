@@ -11,16 +11,20 @@ import { GrSubtract, GrAdd } from "react-icons/gr";
 import { selectRemainingOrderProducts } from "../redux/selector";
 
 const CartView = (props) => {
-  const {index, id, image, name, price, color, size, quantity, priceTotal} = props
+  const {id, image, name, price, color, size, quantity, priceTotal} = props
   let [quantityUpdate, setQuantityUpdate] = useState(quantity)
-  let [priceTotalUpdate, setPriceTotalUpdate] = useState(priceTotal+price)
+  let [priceTotalUpdate, setPriceTotalUpdate] = useState(priceTotal)
 
   const dispatch = useDispatch()
   const listOrderProduct = useSelector(selectRemainingOrderProducts)
 
-  const handleIncreament = () => {
-    // eslint-disable-next-line no-const-assign
-    setQuantityUpdate(() => quantityUpdate ++)
+  useEffect(() => {
+    console.log(quantityUpdate)
+    console.log(priceTotalUpdate)
+  }, [quantityUpdate])
+
+  const handleIncreament = (idUp, colorUp, sizeUp) => {
+    setQuantityUpdate(() => quantityUpdate+=1)
     setPriceTotalUpdate(() => priceTotalUpdate += price)
     const updateProduct = {
       id: id,
@@ -32,15 +36,15 @@ const CartView = (props) => {
       quantity: quantityUpdate,
       priceTotal: priceTotalUpdate
     }
-    return dispatch(cartSlice.actions.updateOrderProducts({index, product: updateProduct}))
+    return dispatch(cartSlice.actions.updateOrderProducts({idUp, colorUp, sizeUp, product: updateProduct}))
   }
   
-  const handleDecreament = () => {
-    setQuantityUpdate(() => quantityUpdate--)
+  const handleDecreament = (idUp, colorUp, sizeUp) => {
+    setQuantityUpdate(() => quantityUpdate-=1)
     setPriceTotalUpdate(() => priceTotalUpdate -= price)
     if(quantityUpdate === 1) {
       console.log(listOrderProduct);
-      return dispatch(cartSlice.actions.updateOrderProducts({index}))
+      return dispatch(cartSlice.actions.updateOrderProducts({idUp, colorUp, sizeUp}))
     } 
     const updateProduct = {
       id: id,
@@ -52,8 +56,10 @@ const CartView = (props) => {
       quantity: quantityUpdate,
       priceTotal: priceTotalUpdate
     }
-    return dispatch(cartSlice.actions.updateOrderProducts({index, product: updateProduct}))
+    return dispatch(cartSlice.actions.updateOrderProducts({idUp, colorUp, sizeUp, product: updateProduct}))
   }
+
+
   return (
     <tr>
       <td className="cart__list-product__image ">
@@ -93,7 +99,7 @@ const CartView = (props) => {
           buttonStyle="btn--outline"
           buttonClassName="cart__list-product__btn"
           buttonColor="subtract"
-          onClick={() => handleDecreament()}
+          onClick={() => handleDecreament(id, color, size)}
         >
           <GrSubtract />
         </Button>
@@ -102,7 +108,7 @@ const CartView = (props) => {
           buttonStyle="btn--outline"
           buttonClassName="cart__list-product__btn"
           buttonColor="add"
-          onClick={() => handleIncreament()}
+          onClick={() => handleIncreament(id, color, size)}
         >
           <GrAdd />
         </Button>

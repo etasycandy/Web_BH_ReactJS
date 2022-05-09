@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useSelector, useDispatch} from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Button } from "./Button";
 import numberWithCommas from "../utils/numberWithCommas";
@@ -55,10 +57,6 @@ const ProductView = (props) => {
 
   const listOrderProduct = useSelector(selectRemainingOrderProducts)
 
-  useEffect(() => {
-    console.log(listOrderProduct);
-  })
-
   const handleIncreament = () => {
     setQuantity(() => quantity++)
   }
@@ -95,6 +93,15 @@ const ProductView = (props) => {
       setColor(undefined)
       setSize(undefined)
       setPrice(product.price)
+      toast.success('🦄 Add to cart successfully!', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return dispatch(cartSlice.actions.addOrderProducts(productChoose)) 
   };
 }
@@ -121,6 +128,18 @@ const ProductView = (props) => {
       <div className="row product-view m-5">
         <div className="row col-sm-12 col-md-7 product-view__images">
           <div className="col-3 product-view__images__list">
+            <ToastContainer
+                position="bottom-right"
+                theme="dark"
+                autoClose={3000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div
               className="product-view__images__list__item"
               onClick={() => setPreviewImg(product.image01)}
