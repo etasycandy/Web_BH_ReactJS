@@ -44,7 +44,6 @@ function Cart() {
                 listOrderProduct.map((item, index) => (
                   <CartView
                     key={index}
-                    index={index}
                     id={item.id}
                     name={item.name}
                     image={item.image}
