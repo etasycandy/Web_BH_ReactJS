@@ -14,7 +14,8 @@ import { GrSubtractCircle, GrAddCircle } from "react-icons/gr";
 
 const ProductView = (props) => {
   let product = props.product;
-  if (product === undefined)
+  const count = 1
+  if (product === undefined) {
     product = {
       title: "",
       priceOld: "",
@@ -27,13 +28,13 @@ const ProductView = (props) => {
       size: [],
       description: "",
     };
-
+  }
   const [previewImg, setPreviewImg] = useState(product.image01);
   const [descriptionExpand, setDescriptionExpand] = useState(false);
   const [color, setColor] = useState(undefined);
   const [size, setSize] = useState(undefined);
   let [quantity, setQuantity] = useState(1);
-  const [price, setPrice] = useState(parseInt(product.price))
+  let [priceTotal, setPriceTotal] = useState(0)
 
   const check = () => {
     if (color === undefined) {
@@ -48,14 +49,18 @@ const ProductView = (props) => {
 
     return true;
   };
-
   const dispatch = useDispatch()
+  const listOrderProduct = useSelector(selectRemainingOrderProducts)
 
   useEffect(() => {
     setPreviewImg(product.image01)
   }, [product])
 
-  const listOrderProduct = useSelector(selectRemainingOrderProducts)
+  // useEffect(() => {
+  //   console.log(quantity)
+  //   setPriceTotal(() => Number(product.price*quantity))
+  //   console.log(priceTotal)
+  // },[quantity, priceTotal])
 
   const handleIncreament = () => {
     setQuantity(() => quantity++)
@@ -66,7 +71,7 @@ const ProductView = (props) => {
       setQuantity(1)
       return false
     }
-    setQuantity(() => quantity --)
+    setQuantity(() => quantity--)
   }
 
   const handleGetColorOrder = (color) => {
@@ -87,12 +92,11 @@ const ProductView = (props) => {
         color: color,
         size: size,
         quantity: quantity,
-        priceTotal: (price * quantity)
+        priceTotal: (product.price*quantity)
       }
       setQuantity(1)
       setColor(undefined)
       setSize(undefined)
-      setPrice(product.price)
       toast.success('🦄 Add to cart successfully!', {
         position: "bottom-right",
         autoClose: 3000,
@@ -102,7 +106,7 @@ const ProductView = (props) => {
         draggable: true,
         progress: undefined,
       });
-      return dispatch(cartSlice.actions.addOrderProducts(productChoose)) 
+      return dispatch(cartSlice.actions.addOrderProducts(productChoose))
   };
 }
   const goToCart = () => {

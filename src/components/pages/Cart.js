@@ -12,6 +12,7 @@ function Cart() {
   let [subTotalPrice, setSubTotalPrice] = useState(0)
   const listOrderProduct = useSelector(selectRemainingOrderProducts)
 
+  console.log(listOrderProduct)
 
   useEffect(() => {
     setSubTotalPrice(() => {
@@ -19,7 +20,7 @@ function Cart() {
       for(let product of listOrderProduct) {
         total += product.priceTotal
       }
-      return total.toFixed(1)
+      return Number(total).toFixed(1)
     })
   }, [listOrderProduct])
 
@@ -45,13 +46,14 @@ function Cart() {
                   <CartView
                     key={index}
                     id={item.id}
+                    index={index}
                     name={item.name}
                     image={item.image}
                     price={item.price}
                     color={item.color}
                     size={item.size}
                     quantity={item.quantity}
-                    priceTotal={Number(item.priceTotal)}
+                    priceTotal={item.priceTotal}
                   />
                 ))
               }
